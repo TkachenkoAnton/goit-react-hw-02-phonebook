@@ -1,2 +1,0 @@
-(this["webpackJsonpmacpro_goit-react-hw-02-phonebook"]=this["webpackJsonpmacpro_goit-react-hw-02-phonebook"]||[]).push([[0],{9:function(e,t,o){"use strict";o.r(t);var c=o(1),n=o.n(c),r=o(3),i=o.n(r),a=o(0);var s=function(){return Object(a.jsx)("div",{children:"HI"})};i.a.render(Object(a.jsx)(n.a.StrictMode,{children:Object(a.jsx)(s,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.fc25753e.chunk.js.map
