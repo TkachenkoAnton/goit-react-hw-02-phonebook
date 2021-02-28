@@ -2,14 +2,17 @@ import React, { Component } from "react";
 
 class ContactList extends Component {
   render() {
-    const { contacts } = this.props;
+    const { contacts, children } = this.props;
 
     return (
       <>
         <h2>Contacts</h2>
+        <>{children}</>
         <ul>
-          {contacts.map(({ name, id }) => (
-            <li key={id}>{name}</li>
+          {contacts.map(({ id, name, number }) => (
+            <li key={id}>
+              {name}: {number}
+            </li>
           ))}
         </ul>
       </>
