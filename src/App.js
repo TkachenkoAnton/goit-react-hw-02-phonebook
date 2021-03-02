@@ -10,9 +10,25 @@ class App extends Component {
   };
 
   getAndAddContact = (newContact) => {
-    this.setState(({ contacts }) => {
-      return { contacts: [newContact, ...contacts] };
+    if (this.passNewContact(newContact)) {
+      this.setState(({ contacts }) => {
+        return { contacts: [newContact, ...contacts] };
+      });
+    }
+  };
+
+  passNewContact = (newContact) => {
+    const { contacts } = this.state;
+    let pass = true;
+
+    contacts.forEach(({ name }) => {
+      if (name.toLowerCase() === newContact.name.toLowerCase()) {
+        alert(`${newContact.name} is already in your contacts list`);
+        pass = false;
+      }
     });
+
+    return pass;
   };
 
   setFilterState = (e) => {
