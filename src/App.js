@@ -10,25 +10,25 @@ class App extends Component {
   };
 
   getAndAddContact = (newContact) => {
-    if (this.passNewContact(newContact)) {
+    if (this.isContactExist(newContact)) {
       this.setState(({ contacts }) => {
         return { contacts: [newContact, ...contacts] };
       });
     }
   };
 
-  passNewContact = (newContact) => {
+  isContactExist = (newContact) => {
     const { contacts } = this.state;
-    let pass = true;
+    let contactExist = true;
 
     contacts.forEach(({ name }) => {
       if (name.toLowerCase() === newContact.name.toLowerCase()) {
-        alert(`${newContact.name} is already in your contacts list`);
-        pass = false;
+        alert(`${newContact.name} is already in contacts`);
+        contactExist = false;
       }
     });
 
-    return pass;
+    return contactExist;
   };
 
   setFilterState = (e) => {
@@ -37,12 +37,18 @@ class App extends Component {
     this.setState({ filter: value });
   };
 
-  render() {
+  filterContacts = () => {
     const { contacts, filter } = this.state;
     const normalizeQuery = filter.toLowerCase();
-    const afterSearchContacts = contacts.filter(({ name }) =>
+
+    return contacts.filter(({ name }) =>
       name.toLowerCase().includes(normalizeQuery)
     );
+  };
+
+  render() {
+    const { filter } = this.state;
+    const afterSearchContacts = this.filterContacts();
 
     return (
       <>
