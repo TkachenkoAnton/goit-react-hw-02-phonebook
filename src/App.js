@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import Form from "./components/Form";
+import Container from "./components/Container/Container";
+import Form from "./components/Form/Form";
 import ContactList from "./components/ContactList";
 import SearchForm from "./components/SearchForm";
+// eslint-disable-next-line
+import baseStyles from "./base-styles/main-base-styles.scss";
 
 class App extends Component {
   state = {
@@ -60,14 +63,15 @@ class App extends Component {
 
     return (
       <>
-        <h1>Phonebook</h1>
-        <Form onSubmit={this.getAndAddContact} />
-        <ContactList
-          contacts={afterSearchContacts}
-          onClick={this.deleteContact}
-        >
-          <SearchForm filter={filter} onChange={this.setFilterState} />
-        </ContactList>
+        <Container>
+          <Form onSubmit={this.getAndAddContact} />
+          <ContactList
+            contacts={afterSearchContacts}
+            onClick={this.deleteContact}
+          >
+            <SearchForm filter={filter} onChange={this.setFilterState} />
+          </ContactList>
+        </Container>
       </>
     );
   }
