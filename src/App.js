@@ -17,6 +17,14 @@ class App extends Component {
     }
   };
 
+  deleteContact = (e) => {
+    this.setState(({ contacts }) => {
+      return {
+        contacts: contacts.filter(({ id }) => id !== e.target.id),
+      };
+    });
+  };
+
   isContactExist = (newContact) => {
     const { contacts } = this.state;
     let contactExist = true;
@@ -54,7 +62,10 @@ class App extends Component {
       <>
         <h1>Phonebook</h1>
         <Form onSubmit={this.getAndAddContact} />
-        <ContactList contacts={afterSearchContacts}>
+        <ContactList
+          contacts={afterSearchContacts}
+          onClick={this.deleteContact}
+        >
           <SearchForm filter={filter} onChange={this.setFilterState} />
         </ContactList>
       </>
