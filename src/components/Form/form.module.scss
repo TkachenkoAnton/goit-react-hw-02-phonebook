@@ -9,16 +9,17 @@
   border: 2px solid black;
 }
 
-.addContactForm__input {
+.addContactForm__label {
   margin-bottom: 20px;
 }
 
 .addContactForm__button {
-  cursor: pointer;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   margin-right: auto;
   margin-left: auto;
   border: 0;
   border-radius: 5px;
+  &:hover {
+    background-color: chocolate;
+  }
 }

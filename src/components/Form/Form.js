@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import shortid from "shortid";
 import styles from "./form.module.scss";
 
@@ -35,7 +36,7 @@ class Form extends Component {
 
     return (
       <form className={styles.addContactForm} onSubmit={this.handleSubmit}>
-        <label htmlFor={formId} className={styles.addContactForm__input}>
+        <label htmlFor={formId} className={styles.addContactForm__label}>
           <h3>Name</h3>
           <input
             type="text"
@@ -45,7 +46,7 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor={formId} className={styles.addContactForm__input}>
+        <label htmlFor={formId} className={styles.addContactForm__label}>
           <h3>Number</h3>
           <input
             type="tel"
@@ -62,5 +63,9 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default Form;
